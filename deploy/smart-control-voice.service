@@ -1,0 +1,17 @@
+[Unit]
+Description=Smart Control Voice Telegram bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/Proyectos/smart-control-voice
+EnvironmentFile=%h/Proyectos/smart-control-voice/.env
+ExecStart=%h/Proyectos/smart-control-voice/.venv/bin/smart-control-voice
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=default.target
